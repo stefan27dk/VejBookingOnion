@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,9 @@ namespace Web
 {
     public class Startup
     {
+
+
+        // Startup
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -20,15 +24,25 @@ namespace Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+
+
+
+         // Configure Services
+        public void ConfigureServices(IServiceCollection services)   // This method gets called by the runtime. Use this method to add services to the container.
         {
+  
             services.AddControllersWithViews();
+            services.AddApplicationLayer(); // Extending IServiceCollection
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+
+
+
+         // Configure
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        {     
+            
+            // Default Code
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -39,6 +53,10 @@ namespace Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+
+
+           
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

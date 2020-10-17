@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <Folder Include="Exceptions\" />
-    <Folder Include="Services\StudentServices\Commands\" />
-    <Folder Include="Services\StudentServices\Queries\" />
     <Folder Include="Services\TeacherServices\Command\" />
     <Folder Include="Services\TeacherServices\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
   </ItemGroup>
 
   <ItemGroup>

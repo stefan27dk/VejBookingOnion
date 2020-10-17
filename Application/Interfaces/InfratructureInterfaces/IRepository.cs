@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace Application.Interfaces.InfratructureInterfaces
         // Load
         Task<Domain.Entities.Teacher> Load_Teacher(Guid id);
         Task<Domain.Entities.Student> Load_Student(Guid id);
+        Task<IEnumerable> GetAll_Students();
 
 
 

@@ -3,6 +3,7 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,7 +60,8 @@ namespace Persistence.Repositories
 
 
 
-        // Load   
+        // ::Load::----------------------------------------------------------------------------------------------------------   
+        //Load Student
         async Task<Student> IRepository.Load_Student(Guid id)
         {
             var found = await _DbContext.Students.FirstOrDefaultAsync(a => a.Id == id);
@@ -70,6 +72,25 @@ namespace Persistence.Repositories
         }
 
 
+
+
+
+        // Get All Students
+        async Task<IEnumerable> IRepository.GetAll_Students()
+        {
+            var found = await _DbContext.Students.ToListAsync();
+            if(found == null)
+            {
+                throw new Exception($"Cant Get All Students - List is null");
+            }
+
+            return found;
+        }
+
+
+
+
+        //Load Teacher
         async Task<Teacher> IRepository.Load_Teacher(Guid id)
         {
             var found = await _DbContext.Teachers.FirstOrDefaultAsync(a => a.Id == id);

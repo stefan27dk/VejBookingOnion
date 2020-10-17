@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Persistence.Context
 {
-    public class VejBookingOnionDbContext : DbContext
+    public class VejBookingOnionDbContext : DbContext, IVejBookingOnionDbContext
     {
 
         // Constructor
